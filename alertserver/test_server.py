@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-import server
+from alertserver import server
+
 
 @pytest.fixture
 def client(request):
