@@ -1,0 +1,5 @@
+FLASK_APP=server.py
+FLASK_DEBUG=1
+
+export FLASK_APP
+export FLASK_DEBUG
