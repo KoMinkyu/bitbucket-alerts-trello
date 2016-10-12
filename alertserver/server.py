@@ -19,6 +19,7 @@ webhook_paths = [
 
 @app.before_request
 def limit_remote_addr():
+    """Block all request if request's path is heading to limited path with non-trusted remote address."""
     if (is_webhook_path(request.path) and
             not is_trusted_remote_addrs(request.remote_addr)):
         abort(403)
