@@ -37,10 +37,24 @@ def is_trusted_remote_addrs(remote_addr):
 def tracking():
     if request.method == 'POST':
         data = request.get_json()
+
         commit_author = data['actor']['username']
-        commit_hash = data['push']['changes'][0]['new']['target']['hash'][:7]
-        commit_url = data['push']['changes'][0]['new']['target']['links']['html']['href']
-        print('Webhook received! %s committed %s' % (commit_author, commit_hash))
+
+        is_branch_created = data['push']['changes'][0]['created']
+        is_branch_closed = data['push']['changes'][0]['closed']
+        if is_branch_created:
+            # TODO: Alert branch created.
+            print('Webhook received! %s created branch' % commit_author)
+            pass
+        elif is_branch_closed:
+            # TODO: Alert branch closed.
+            print('Webhook received! %s deleted branch' % commit_author)
+        else:
+            # TODO: Alert commits.
+            commit_hash = data['push']['changes'][0]['new']['target']['hash'][:7]
+            commit_url = data['push']['changes'][0]['new']['target']['links']['html']['href']
+            print('Webhook received! %s committed %s' % (commit_author, commit_hash))
+
         return 'OK'
 
 
