@@ -7,13 +7,12 @@ Step 1. Setup virtualenv and required environments.
 ``` sh
 virtualenv env
 source env/bin/activate
-source flask_env
 ```
 
-Step 2. Run flask server.
+Step 2. Run server.
 
 ``` sh
-flask run
+python alertserver/server.py
 ```
 
 # Tests
