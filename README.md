@@ -9,7 +9,11 @@ virtualenv env
 source env/bin/activate
 ```
 
-Step 2. Run server.
+Step 2. Configuration.
+
+Check the [sample configuration file](./alertserver/config.sample.ini). 
+
+Step 3. Run server.
 
 ``` sh
 python alertserver/server.py
